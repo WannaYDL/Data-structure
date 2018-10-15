@@ -49,19 +49,28 @@ SElem GetTop(SqStack &S)
 
 int main()
 {
-    int x;
+    int x,flag=-1;
     SqStack S;
     SElem a,b;
     InitStack(S);
     a.p=5;
+    cout<<"请输入入栈元素以EOF结尾："; 
     while(cin>>x){
         a.p=x;
         Push(S,a);
     }
     a.p=0;
-    Pop(S,a);
-    cout<<a.p<<endl;
-    b=GetTop(S);
-    cout<<b.p<<endl;
-
+    cout<<"出栈操作："<<endl;
+    flag=Pop(S,a);
+    if(flag==0){
+    	cout<<"操作失败，栈已空!"<<endl;
+	}
+	else{
+		cout<<"出栈元素为：";
+		cout<<a.p<<endl;
+		cout<<"出栈之后栈顶元素为:";
+	    b=GetTop(S);
+	    cout<<b.p<<endl;
+	}
+	return 0;
 }
